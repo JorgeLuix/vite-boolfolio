@@ -1,0 +1,35 @@
+@use './partials/variables' as *;
+
+$fa-font-path: '../webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+
+@import 'bootstrap/scss/bootstrap';
+
+
+#product-list{
+    .card{
+        .card-title{
+            h3{
+                color: $text-color;
+                min-height: 3em;
+            }
+        }
+        .card-img-top {
+                height: 250px;
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+       .card-body{
+         h6 {
+            text-transform: capitalize;
+         }
+       }
+    }
+    
+    
+}
