@@ -3,9 +3,9 @@ import axios from 'axios';
 import { router } from "./router/router";
 
 export const store = reactive({
-    getProjects(apiLink, myproject) {
+    getProjects(Link, myproject) {
         store.loading = true;
-        axios.get(apiLink).then((res) => {
+        axios.get(Link).then((res) => {
             if (!myproject || myproject === undefined) {
                 store.projects = res.data.results.data;
                 store.links = res.data.results.links;

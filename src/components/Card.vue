@@ -13,7 +13,7 @@
                 <div class="buttons d-flex justify-content-center">
                     <router-link :to="{ name: 'projects' }" class="btn btn-primary"> 
                         visualizza
-                        <!-- <MatrixDescription ref="MatrixDescription" :description="'Visualizza'" /> -->
+                        
                     </router-link>
                 </div>
             </div>
