@@ -1,31 +1,28 @@
 import { reactive } from "vue";
 import axios from 'axios';
+import { router } from "./router/router";
 
 export const store = reactive({
-    apiURL: 'http://127.0.0.1:8000/api',
-    imgBasePath: 'http://127.0.0.1:8000/storage/'
-    // endPoint: '',
-    // characterList: [],
-    // loading: false,
-    // params: {},
-    // search: {
-    //     status: '',
-    //     name: ''
-    // },
-    // errormessage: '',
-    // getCharacters() {
-    //     this.errormessage = '';
-    //     this.loading = true;
-    //     const params = { ...this.params }
-    //     axios.get(this.apiURL + this.endPoint, { params }).then(
-    //         (res) => {
-    //             this.characterList = res.data.results;
-    //             this.loading = false;
-    //         }
-    //     ).catch((error) => {
-    //         this.characterList.length = 0;
-    //         this.loading = false;
-    //         this.errormessage = error.message
-    //     })
-    // }
-});
+    getProjects(apiLink, myproject) {
+        store.loading = true;
+        axios.get(apiLink).then((res) => {
+            if (!myproject || myproject === undefined) {
+                store.projects = res.data.results.data;
+                store.links = res.data.results.links;
+            }
+            else {
+                store.project = res.data.results;
+            }
+
+            store.loading = false;
+            if (!res.data.success) {
+                router.push({ name: 'NotFound' });
+            }
+
+        })
+    },
+    projects: [],
+    links: [],
+    loading: false,
+    project: [],
+})

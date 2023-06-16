@@ -1,10 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomePage from "./pages/HomePage.vue";
-import ProjectsList from "./pages/ProjectsList.vue";
-import AboutUs from "./pages/AboutUs.vue";
-import ContactUs from "./pages/ContactUs.vue";
-import SingleProject from "./pages/SingleProject.vue";
-import NotFound from "./pages/NotFound.vue";
+import HomePage from "../pages/HomePage.vue";
+import ProjectsList from "../pages/ProjectsList.vue";
+import AboutUs from "../pages/AboutUs.vue";
+import ContactUs from "../pages/ContactUs.vue";
+import NotFound from "../pages/NotFound.vue";
 
 const router = createRouter({
   
@@ -30,15 +29,11 @@ const router = createRouter({
             name: 'contact',
             component: ContactUs
         },
-        {
-            path: '/projects/:slug',
-            name: 'single-project',
-            component: SingleProject
-        },
+       
         //
         {
-            path: "/:pathMacht(.*)*",
-            name: "not-found",
+            path: '/:pathMacht(.*)*',
+            name: 'NotFound',
             component: NotFound
         },
 

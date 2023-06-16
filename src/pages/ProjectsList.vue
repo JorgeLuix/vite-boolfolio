@@ -1,76 +1,54 @@
 <template>
-    <div class="container" id="product-list">
-      <h1>{{ title }}</h1>
-      <div class="row gy-4 mb-4">
-        <div
-          class="col-sm-6 col-md-4 col-lg-3"
-          v-for="(project, index) in projects"
-          :key="projects.id">
-          <div class="card" style="width: 200px;" >
-              <img :src="project.image" :alt="projects.name" class="img-fluid" />
-              <div class="card-body">
-                <h6>{{ project.name }}</h6>
-              </div>
-            </div>
-          </div>
+  <Loading v-if="store.loading"/>
+<div v-else class="project">
+
+  <div class="container">
+      <div class="project-title d-flex justify-content-center align-items-center">
+      <h1 class="m-0"> {{ store.project.name }}</h1>
+  </div>
+  <div class="mb-3">
+      <img class="img-fluid" :src="store.project.image" alt="">
+  </div>
+
+</div>
+<div class="project-body">
+  <div class="container">
+      <div class=" py-2">
+          <span v-for="types in store.project.types"
+            class="text-bg-dark badge me-1">{{ types.name }}</span>
       </div>
-      
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <button class="page-link" @click="getData(currentPage - 1)">
-              Previous
-            </button>
-          </li>
-          <li class="page-item" v-for="n in lastPage">
-            <button class="page-link" @click="getData(n)">{{ n }}</button>
-          </li>
+       <p v-html="store.project.description"></p>
+      <div class="buttons d-flex justify-content-center">
+        <a :href="store.project.repository_url" class="btn btn-primary">Repository</a>
+      </div>
+  </div>
+  </div>
+</div>
+</template>
+<script>
+import { store } from '../store';
+import Loading from '../components/Loading.vue';
+
+export default {
+name:"Project",
+components: {
+  Loading,
+},
+data() {
+  return {
+      store,
+      apiProject: 'http://localhost:8000/api/projects',
+
+  }
+},
+created(){
+  // const projectSlug = this.$route.params.slug;
   
-          <li class="page-item">
-            <button class="page-link" @click="getData(currentPage + 1)">
-              Next
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </template>
-  
-  <script>
-  import axios from "axios";
-  export default {
-    name: "App",
-    data() {
-      return {
-        title: "Projects",
-        projects: [],
-        apiUrl: "http://127.0.0.1:8000/api",
-        imgBasePath: "http://127.0.0.1:8000/storage/",
-        currentPage: 1,
-        lastPage: null,
-      };
-    },
-    methods: {
-      getData(numPage) {
-        axios.get(`${this.apiUrl}/projects`, {
-            params: {
-              page: numPage,
-            },
-          })
-          .then((res) => {
-            //console.log(res);
-            this.projects = res.data.results;
-          //   this.currentPage = res.data.results.current_page;
-          //   this.lastPage = res.data.results.last_page;
-            console.log(this.projects);
-          });
-      },
-    },
-    mounted() {
-      this.getData(1);
-    },
-  };
-  </script>
-  
-  <style lang="scss" scoped></style>
-  
+  store.getProjects((this.apiProject), true);
+}   
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>
