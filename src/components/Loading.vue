@@ -1,6 +1,6 @@
 <template>
     <div>
-<h1>loading.vue</h1>
+<h1>Caricamento...</h1>
     </div>
 </template>
 

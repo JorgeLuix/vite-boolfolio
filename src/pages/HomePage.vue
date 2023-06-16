@@ -2,7 +2,7 @@
     <Loading v-if="store.loading"/>
     <div v-else class="container-fluid">
         <div class="title-page mx-auto mb-4 text-center">
-        <h1 class="m-0">I miei progetti</h1>
+        <h1 class="m-0">Miei progetti</h1>
     </div>
       <div class="row">
        <Card v-for="project in store.projects" :project="project"/>

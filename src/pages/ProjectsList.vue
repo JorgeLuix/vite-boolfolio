@@ -11,7 +11,7 @@
   </div>
 
 </div>
-<div class="project-body">
+<div class="">
   <div class="container">
       <div class=" py-2">
           <span v-for="types in store.project.types"
@@ -42,8 +42,6 @@ data() {
   }
 },
 created(){
-  // const projectSlug = this.$route.params.slug;
-  
   store.getProjects((this.apiProject), true);
 }   
 }
