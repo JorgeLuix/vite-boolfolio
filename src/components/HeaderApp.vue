@@ -1,26 +1,19 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-    data-bs-target="#navbarNav" aria-controls="navbarNav" 
-    aria-expanded="false" aria-label="Toggle navigation" :disabled="disableToggler"
-      @click="toggleNavLinks">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div :class="{ 'collapse': !showNavLinks, 'navbar-collapse': true, 'text-muted': true }" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item" v-for="(link, index) in menu" :key="index">
-          <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
-          <router-link :to="{ name: link.routeName }" class="nav-link">
-                {{ link.label }}
-          </router-link>
-        </li>
-        
-      </ul>
-    </div>
+      <header class="d-flex justify-content-center">
+          <div class="head-container">
+              <nav class="d-flex align-items-center justify-content-between">
+                  <div class="logo">
+                      <h4 class="m-0">Portfolio</h4>
+                  </div>
+                  <div class="navlinks d-flex gap-2">
+                      <li> <router-link class="nav-link" :to="{ name: 'home' }">Home</router-link></li>
+                      <li> <a class="nav-link" href="http://localhost:8000">Admin</a></li>
+                  </div>
+              </nav>
+          </div>
+      </header>
   </div>
-</nav>
 </template>
 
 <script>
@@ -32,25 +25,6 @@
         showNavLinks: false,
         disableToggler:false,
 
-        menu: [
-          {
-            label: 'Home',
-            routeName: 'home'
-          },
-          {
-            label: 'Projects',
-            routeName: 'projects'
-          },
-          {
-            label: 'About Us',
-            routeName: 'about'
-          },
-          {
-            label: 'Contacts',
-            routeName: 'contact'
-          },
-          
-        ]
       }
     },
     methods: {
@@ -62,5 +36,49 @@
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/styles/partials/variables' as *;
 
+.head-container {
+    background-color: $redMario;
+    padding: 1rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+    
+}
+
+nav {
+    li {
+        list-style: none;
+    
+    }
+}
+
+.logo {
+    color: $main-mario;
+    font-family: 'Press Start 2P', cursive;
+
+    h4 {
+        font-size: 1.2rem;
+        border: 2px solid;
+        padding: 10px;
+        border-radius: 30px;
+        cursor:pointer;
+    }
+
+    img {
+        width: 100px;
+        border-radius: 10px;
+    }
+}
+
+.router-link-active {
+
+    color: white!important;
+
+}
+
+.nav-link {
+    color: $second-text-color
+}
 </style>

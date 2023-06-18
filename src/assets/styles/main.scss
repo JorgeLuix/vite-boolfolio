@@ -3,33 +3,50 @@
 $fa-font-path: '../webfonts';
 @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';
-
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import 'bootstrap/scss/bootstrap';
 
-
-#product-list{
-    .card{
-        .card-title{
-            h3{
-                color: $text-color;
-                min-height: 3em;
-            }
-        }
-        .card-img-top {
-                height: 250px;
-
-                img {
-                    object-fit: cover;
-                    height: 100%;
-                    width: 100%;
-                }
-            }
-       .card-body{
-         h6 {
-            text-transform: capitalize;
-         }
-       }
-    }
-    
-    
-}
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    background-color: $main-mario;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  .pagination {
+    .disabled {
+      --bs-pagination-disabled-bg:rgb(92, 90, 90);
+      --bs-pagination-disabled-color:$redMario;
+      }
+  }
+  
+  .pagination > li > a
+  {
+      background-color: black;
+      color: white;
+  }
+  
+  .pagination > li > a:focus,
+  .pagination > li > a:hover,
+  .pagination > li > span:focus,
+  .pagination > li > span:hover
+  {
+    background-color: $redMario !Important;
+    color:white;
+  }
+  
+  .pagination > .active > a
+  {
+    background-color: $greenMario !Important;
+    color:white;
+    border:1px solid white;
+  }
+  
+  .pagination > .active > a:hover
+  {
+      background-color: $main-bg-color !Important;
+      color:white;
+  }
