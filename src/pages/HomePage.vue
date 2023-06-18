@@ -7,7 +7,7 @@
     <div class="title-page mx-auto mb-4 text-center">
       <h1>
         <span class="letter-1">M</span>
-        <span class="letter-4">i</span>
+        <span class="letter-5">i</span>
         <span class="letter-3">e</span>
         <span class="letter-1">i</span><br>
         <span class="letter-5"> </span>
@@ -18,7 +18,7 @@
         <span class="letter-5">e</span>
         <span class="letter-1">t</span>
         <span class="letter-1">t</span>
-        <span class="letter-4">i</span>
+        <span class="letter-5">i</span>
         <span class="letter-4"> </span>
       </h1>
     </div>
