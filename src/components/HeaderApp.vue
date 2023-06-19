@@ -75,7 +75,7 @@ nav {
 
 .router-link-active {
 
-    color: white!important;
+    color: $gialloMario !important;
 
 }
 

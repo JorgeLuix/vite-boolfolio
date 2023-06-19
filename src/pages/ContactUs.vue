@@ -18,8 +18,8 @@
                     <textarea class="border-0 border-bottom form-control" :class="{ 'is-invalid': errors.message }"
                         name="body" id="body" cols="30" rows="10" placeholder="Message" v-model="body"></textarea>
                 </div>
-                <button class="btn btn-lg btn-primary text-white" type="submit" :disabled="loading">{{ loading ?
-                    'Sending...' : 'Send'
+                <button class="btn btn-lg btn-success text-white" type="submit" :disabled="loading">{{ loading ?
+                    'Invia...' : 'Invia'
                 }}</button>
             </form>
         </div>
