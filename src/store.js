@@ -3,6 +3,8 @@ import axios from 'axios';
 import { router } from "./router/router";
 
 export const store = reactive({
+    apiUrl: 'http://localhost:8000/api',
+    
     getProjects(Link, myproject) {
         store.loading = true;
         axios.get(Link).then((res) => {
