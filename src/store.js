@@ -4,10 +4,11 @@ import { router } from "./router/router";
 
 export const store = reactive({
     apiUrl: 'http://localhost:8000/api',
+    imgBasePath: 'http://localhost:8000/storage',
     
-    getProjects(Link, myproject) {
+    getProjects(apiLink, myproject) {
         store.loading = true;
-        axios.get(Link).then((res) => {
+        axios.get(apiLink).then((res) => {
             if (!myproject || myproject === undefined) {
                 store.projects = res.data.results.data;
                 store.links = res.data.results.links;

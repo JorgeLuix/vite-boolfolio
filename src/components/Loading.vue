@@ -1,7 +1,7 @@
 <template>
     <div class="loader">
-    <div class="loader-content mario">
-      <!-- <img src="../assets/img/mario-removebg-preview.png" alt="Mario" class="mario"> -->
+    <div class="loader-content">
+      <img class="mario" :src="sourcegif" alt="Loader GIF"> 
       <h1>
         <span class="letter-1">L</span>
         <span class="letter-2">o</span>
@@ -19,8 +19,14 @@
 </template>
 
 <script>
-    export default {
-        
+import sourcegif from '@/assets/source.gif';
+export default {
+      name: 'Loading',
+      data() {
+        return {
+            sourcegif
+        }
+    },
     }
 </script>
 
@@ -64,13 +70,13 @@
   text-align: center;
   color: #fff;
   font-family: "Press Start 2P", sans-serif;
+  animation: jump 1s infinite;
+  transition: transform 0.3s ease-in-out;
 }
 
 .mario {
   width: 100px;
   height: 100px;
-  animation: jump 1s infinite;
-  transition: transform 0.3s ease-in-out;
   background: none;
 }
 

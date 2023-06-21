@@ -11,7 +11,7 @@
                 </div>
                 <div class="buttons btn-shadow d-flex justify-content-center">
                     <router-link :to="{ name: 'projects', params: { slug: project.slug } }" class="btn btn-primary">
-                       visualizza
+                       Visualizza
                     </router-link>
                 </div>
             </div>
@@ -36,9 +36,7 @@ export default {
 .card {
     background-color: white;
     color: black;
-    cursor:crosshair;
-
-
+    cursor:grab;
     .card-title {
         color: black;
         font-family: 'Press Start 2P', cursive;

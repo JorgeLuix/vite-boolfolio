@@ -1,8 +1,8 @@
 <template>
   <Loading v-if="store.loading" />
   <div v-else class="container-fluid">
-    <div class="container">
-      <!-- <Carousel/> -->
+    <div class="container-fluid">
+      <Carousel/>
     </div>
     <div class="title-page mx-auto mb-4 text-center">
       <h1>
@@ -22,7 +22,7 @@
         <span class="letter-4"> </span>
       </h1>
     </div>
-    <div class="row">
+    <div class="row p-3">
       <Card v-for="project in store.projects" :project="project" />
     </div>
     <nav class="mt-2">
@@ -44,13 +44,13 @@
 import Card from "../components/Card.vue";
 import Loading from "../components/Loading.vue";
 import { store } from "../store";
-// import Carousel from '../components/Carousel.vue';
+import Carousel from '../components/Carousel.vue';
 export default {
-  name: "Home",
+  name: "HomePage",
   components: {
     Card,
     Loading,
-    // Carousel,
+    Carousel,
   },
   data() {
     return {
