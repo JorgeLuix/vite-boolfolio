@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 pe-1 col-md-4 col-lg-3 col-md-4 col-sm-6 col-xxl-2 d-flex justify-content-center mb-5">
+    <div class="container col-12 pe-1 col-md-4 col-lg-3 col-md-4 col-sm-6 col-xxl-2 d-flex justify-content-center mb-5">
         <div class="card" style="width: 30rem;">
                 <img class="image" :src="project.image" alt="image">
             

@@ -1,105 +1,118 @@
 <template>
-  <Loading v-if="store.loading" />
-  <div v-else class="container-fluid">
-    <div class="container-fluid">
-      <Carousel/>
+  <section id="inizio" class="inizio">
+    <div class="contenuto-banner">
+      <div class="contenuto-img">
+        <img src="../assets/img/IMG_20230621_161807.jpg" alt="" />
+      </div>
+      <h1>Jorge Castillo</h1>
+      <h2>Jr Full Stack Developer</h2>
     </div>
-    <div class="title-page mx-auto mb-4 text-center">
-      <h1>
-        <span class="letter-1">M</span>
-        <span class="letter-5">i</span>
-        <span class="letter-3">e</span>
-        <span class="letter-1">i</span><br>
-        <span class="letter-5"> </span>
-        <span class="letter-1">P</span>
-        <span class="letter-4">r</span>
-        <span class="letter-3">o</span>
-        <span class="letter-4">g</span>
-        <span class="letter-5">e</span>
-        <span class="letter-1">t</span>
-        <span class="letter-1">t</span>
-        <span class="letter-5">i</span>
-        <span class="letter-4"> </span>
-      </h1>
+  </section>
+
+  <section id="aboutme" class="aboutme" v-cloak>
+  <div class="contenuto-section">
+    <h2>About me</h2>
+    <p><span>Ciao, sono Jorge Castillo,</span> 
+    un giovane sviluppatore full stack appassionato di creare soluzioni innovative e coinvolgenti nella progettazione e nello sviluppo di applicazioni web moderne utilizzando tecnologie front-end e back-end.</p>
+
+    <div class="fila">
+      <!-- dati personali -->
+      <div class="col">
+        <h3>Dati Personali</h3>
+        <ul>
+          <li v-for="item in store.personalData" :key="item.label">
+            <strong>{{ item.label }}</strong>
+            {{ item.value }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- interesi -->
+      <div class="col">
+        <h3>Interesi</h3>
+        <div class="container-interesi">
+          <div class="interesi" v-for="interest in store.interests" :key="interest.label">
+            <i :class="'fa-solid ' + interest.icon"></i>
+            <span>{{ interest.label }}</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row p-3">
-      <Card v-for="project in store.projects" :project="project" />
-    </div>
-    <nav class="mt-2">
-      <ul class="pagination d-flex justify-content-center pb-4">
-        <li
-          v-for="link in store.links"
-          @click="changePage(link)"
-          :class="{ active: link.active, disabled: link.url === null }"
-          class="page-item"
-        >
-          <a class="page-link" href="#" v-html="link.label"></a>
-        </li>
-      </ul>
-    </nav>
+    <button>
+      Scarica CV <i class="fa-solid fa-download"></i>
+      <span class="overlay"></span>
+    </button>
   </div>
+</section>
+
+<section class="container-fluid bg-skills">
+<div class="section container skill">
+    <h2 class="text-uppercase text-center">Skills</h2>
+    <transition-group name="fade" tag="div" class="grid-container">
+      <div v-for="(item, index) in store.items" :key="index" class="grid-item">
+        <img :src="item.image" :alt="item.name" class="logo-image" />
+        <!-- <span class="logo-name">{{ item.name }}</span> -->
+      </div>
+    </transition-group>
+  </div>
+</section>
 </template>
 
 <script>
-import Card from "../components/Card.vue";
-import Loading from "../components/Loading.vue";
 import { store } from "../store";
-import Carousel from '../components/Carousel.vue';
 export default {
   name: "HomePage",
-  components: {
-    Card,
-    Loading,
-    Carousel,
-  },
   data() {
     return {
-      link: "http://localhost:8000/api/projects",
-      projects: [],
-      links: [],
-      store,
+        store,
+
     };
-  },
-  methods: {
-    changePage(link) {
-      if (link.url) {
-        store.getProjects(link.url);
-      } else {
-        return;
-      }
-    },
-  },
-  created() {
-    store.getProjects(this.link);
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @use "../assets/styles/partials/variables" as *;
-.title-page {
-  padding: 0.5rem;
-  border-radius: 5px;
-  min-width: 300px;
-  width: 100%;
+.inizio {
+  background: linear-gradient(
+      to top,
+      rgba(30, 35, 38, 0.8),
+      rgba(30, 35, 38, 1)
+    ),
+    url(../assets/img/fondo.jpg);
+  background-size: cover;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.inizio .contenuto-banner {
+  margin-top: 8rem!important;
+  padding: 20px;
   background-color: $blueMario;
-  h1 {
-    font-size: 2rem;
-  }
+  max-width: 350px;
+  margin: auto;
+  text-align: center;
+  border-radius: 40px;
 }
-.letter-1 {
-  color: #e60012; 
+.inizio .contenuto-banner img {
+  margin-top: 40px;
+  border: 10px solid #1cb698;
+  display: block;
+  width: 80%;
+  margin: auto;
+  border-radius: 100%;
 }
-.letter-2 {
-  color: #0060ad;
+.inizio .contenuto-banner h1 {
+  margin-top: 40px;
+  font-size: 42px;
+  font-family: "Righteous";
 }
-.letter-3 {
-  color: #46ad37;
+.inizio .contenuto-banner h2 {
+  font-size: 15px;
+  font-weight: normal;
 }
-.letter-4 {
-  color: #fed200; 
-}
-.letter-5 {
-  color: #009edb; 
+.inicio .contenido-banner .redes a:hover {
+  background-color: #1cb698;
 }
 </style>

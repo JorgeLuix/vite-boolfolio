@@ -1,10 +1,12 @@
 <template>
     
-    <section class="container m-4">
-        <h2 class="text-uppercase">contact me</h2>
+    <section class="container margin-top">
+        
         <div v-if="success" class="alert alert-success text-start" role="alert">
             Messaggio inviato con successo!
         </div>
+        <div class="container w-50">
+            <h2 class="text-uppercase py-3">contact me</h2>
         <div class="row">
             <form @submit.prevent="sendForm()" class="col-12 text-start">
                 <div class="mb-3">
@@ -24,7 +26,7 @@
                 }}</button>
             </form>
         </div>
-
+    </div>
     </section>
 </template>
 
@@ -75,4 +77,9 @@ export default {
 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.margin-top {
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+}
+</style>

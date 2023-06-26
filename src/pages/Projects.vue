@@ -1,6 +1,6 @@
 <template>
   <Loading v-if="store.loading" />
-  <div v-else class="card container my-5" style="width: 50rem;">
+  <div v-else class="card container" style="width: 50rem;">
     <!-- <p> {{ JSON.stringify(store.project) }} </p> -->
         <h1 class="p-2">{{ store.project.name }}</h1>
         <img class="img-fluid" :src="store.project.image" alt="" />
@@ -16,8 +16,8 @@
         </div>
         <p v-html="store.project.description"></p>
         <div class="buttons d-flex justify-content-center py-5">
-          <a :href="store.project.repository_url" class="btn btn-primary"
-            >Repository</a>
+          <a :href="store.project.repository_url" class="btn btn-primary">Repository</a>
+          <a class="btn2 btn btn-danger"><router-link class="nav-link" :to="{ name: 'portfolio' }">Portfolio</router-link></a>
         </div>
       </div>
     </div>
@@ -49,6 +49,8 @@ export default {
 @use "../assets/styles/partials/variables" as *;
 
 .card{
+  margin-top: 8rem;
+  margin-bottom: 5rem;
   .btn {
     width: 40%;
     color: $blueMario;
@@ -56,6 +58,7 @@ export default {
     border-color: $bluelightMario;
     margin-bottom: 30px;
     transition: 0.3s;
+    font-weight: 600;
     &:hover {
       background-color: $greenMario;
     }
@@ -66,4 +69,14 @@ export default {
     color: $main-mario;
   }
 }
+.btn2{
+  background-color: $redMario!important;
+  font-weight: 600;
+  color: #fff!important;
+  
+}
+.btn2:hover {
+    background-color: $greenMario!important;
+    color: $blueMario !important;
+  }
 </style>
